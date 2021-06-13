@@ -11,7 +11,8 @@
   width: auto;
   height: auto;
   filter: grayscale(100%);
-  opacity: 0.5;
+  opacity: 0.4;
+  z-index: -10;
   }
 body {
   color: rgb(0, 0, 0);
@@ -25,12 +26,12 @@ header {
   left: 0.5%;  
   right: 0.5%;  
   top: 1%;  
-  height: 12%;    
-  align-items: center;  
+  height: 12%;      
   box-shadow: 0 0 25px 0 black;
   display: flex;
+  align-items: center;
   flex-direction: row;
-  justify-content: space-between;  
+  justify-content: space-between; 
   }
 
 header * {  
@@ -46,8 +47,9 @@ header li a {
   color: rgb(0, 0, 0);  
   text-decoration: none;
   vertical-align: middle;
-  margin: 100px;
-  margin-bottom: 100px;  
+  margin-right: 300px;
+  /* margin-bottom: 100px; */
+  /* text-align: justify;    */
   }
 
 header li a:hover {  
@@ -55,10 +57,26 @@ header li a:hover {
   }
 
 #map {  
-    color: rgb(255, 255, 255);  
-    text-decoration: none;  
-    }
+   color: rgb(255, 255, 255);  
+  text-decoration: none;  
+  }
 
+#shoppingCart {
+  margin-right: 0;
+}
+
+
+#mainMessage {
+  position: fixed; 
+  top: 43%;
+  left: 39.5%;
+  right: 25%; 
+  /* width: auto;
+  height: auto; */
+  text-align: justify;
+  }
+
+/* RIGHT NAVBAR */
 #right {
   background-color: rgb(126, 126, 126);
   box-shadow: 0 0 25px 0 black; 
@@ -83,6 +101,8 @@ header li a:hover {
   border-bottom: 2px solid rgb(34, 196, 28);  
   }
 
+
+/* ALL, SUMMER, WINTER PAGES */
 h3 {
   top: 150px;
   position: absolute;
@@ -110,7 +130,74 @@ h3 {
   flex-direction: column;
   justify-content: space-evenly;
 }
-  
 
 
+/* CONTACT PAGE */
+#contact {
+  position: fixed; 
+  top: 50%;
+  left: 45%;
+  right: 40%; 
+  /* width: auto;
+  height: auto; */
+  text-align: justify;
+  }
 
+
+/* MERCH PAGE */
+#merch {
+  top: 150px;
+  position: absolute;
+  text-align: center;
+  width:100%;
+  height:100%; 
+  /* position: sticky;
+  align-items: center;
+  text-align: center;   
+  left: 20%;  
+  top: 14%;   
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly; */
+}
+
+span {cursor:pointer; }
+	.number{
+		margin:100px;
+	}
+
+.minus, .plus{
+	width:20px;
+	height:20px;
+	background:#f2f2f2;
+	border-radius:4px;
+	padding:8px 5px 8px 5px;
+	border:1px solid #ddd;
+  display: inline-block;
+  vertical-align: middle;
+ text-align: center;
+}
+input{
+	height:34px;
+  width: 100px;
+  text-align: center;
+  font-size: 26px;
+	border:1px solid #ddd;
+	border-radius:4px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+#viewCart {
+  text-align: center;
+}
+
+/* CART PAGE */
+#emptyCart{
+  top: 150px;
+  position: absolute;
+  text-align: center;
+  width:100%;
+  height:100%;
+}

@@ -1,3 +1,4 @@
-window.onload = () => {
-    console.log("loaded site");
-}
+// window.onload = () => {
+//     console.log("loaded site");
+// }
+

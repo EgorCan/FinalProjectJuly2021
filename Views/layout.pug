@@ -4,7 +4,7 @@ html(lang='en')
     title= mbTrails
     link(rel="stylesheet", href="/css/styles.css")
     block styles 
-    script(src="js/scripts.js")
+    //- script(src="js/scripts.js")
     block scripts  
 
   body
@@ -14,17 +14,15 @@ html(lang='en')
         ul
           li
             div
-              a(href='#')
+              a(href='/')
                 img#map(src='https://patternuniverse.com/files/images/manitoba-pattern.gif' alt='' width= '60px')
                 span mbTRAILS
           li
-            a(href='#') contact
+            a(href='/contact') contact
           li
-            a(href='#') merch
+            a(href='/merch') merch
           li
-            a(href='#') account
-          li
-            a(href='#') 
+            a#shoppingCart(href='/shoppingCart') 
               img(src='https://img.icons8.com/ios/452/shopping-bag--v1.png' alt='' width= '50px')
 
     block content
