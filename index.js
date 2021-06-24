@@ -1,11 +1,14 @@
 
 const express = require('express');
 const app = express();
+const mongoClient = require("mongodb").MongoClient;
 const port = process.env.PORT;
+// const port = 3003;
 app.listen(port, () => {
     console.log(`Example app running on port ${port}`);
 });
-// const port = 3003;
+const dburl = "mongodb://localhost:27017"
+
 
 const mainMenu = [
     { id: 1, name: "all" },
@@ -26,6 +29,10 @@ app.get('/contact', (req, res) => {
 
 app.get('/merch', (req, res) => {
     res.render('merch', { mainMenu: mainMenu });
+});
+
+app.get('/account', (req, res) => {
+    res.render('account', { mainMenu: mainMenu });
 });
 
 app.get('/shoppingCart', (req, res) => {

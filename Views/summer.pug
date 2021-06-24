@@ -1,22 +1,32 @@
 extend ./layout.pug
 block content
     h3= menuElement.name
-        div.container
-            div#pinePoint
-                img.trail(src="https://media-cdn.tripadvisor.com/media/photo-m/1280/15/1e/de/86/pine-point-trail.jpg", alt="")
-                p
-                    |   Pine Point Trail is a 9.0 kilometer loop trail located near Pinawa, Manitoba, Canada that features a river and is rated as moderate. The trail is primarily used for hiking and nature trips. There are fire pits and picnic tables on the large rocks as well.
-            div#mcGillivray
-                img.trail(src="https://media-cdn.tripadvisor.com/media/photo-s/13/1b/1c/7e/photo0jpg.jpg", alt="")
-                p
-                    |   McGillivray Falls Self-Guiding Trail is a 4.3 kilometer moderately trafficked loop trail located near Division No. 1, Manitoba, Canada that features a lake and is rated as moderate. The trail is primarily used for hiking, walking, nature trips, and bird watching. 
-            div#huntLake
-                img.trail(src="https://pbs.twimg.com/media/CmIWhKoVAAAxHtx.jpg", alt="")
-                p
-                    |   Hunt Lake Trail is a 12.6 kilometer heavily trafficked out and back trail located near Division No. 1, Manitoba, Canada that features a lake and is rated as difficult. The trail is primarily used for hiking and running and is best used from May until October.     
-            div#spiritSands
-                img.trail(src="http://images.ctfassets.net/ugr0g0kuvbq4/1YON8KVnvGBB4o4KZYyeU5/5edcbddc9ea2241f0eb335b2cfd1bc9c/Spirit_Sands_27.jpg?fm=webp&h=400", alt="")
-                p
-                    |   Spirit Sands & Devil's Punch Bowl is a 10.0 kilometer heavily trafficked loop trail located near Glenboro-South Cypress, Manitoba, Canada that features a river and is rated as moderate. The trail offers a number of activity options and is best used from April until October. 
+    div.container
+            ul#trails
+                li#pinePoint
+                    img.trail(src="https://media-cdn.tripadvisor.com/media/photo-m/1280/15/1e/de/86/pine-point-trail.jpg", alt="")
+                    //- p
+                    //-     |   Pine Point Trail is a 9.0 kilometer loop trail located near Pinawa, Manitoba, Canada that features a river and is rated
+                    //-     |   as moderate. The trail is primarily used for hiking and nature trips. There are fire pits and picnic tables on the large rocks
+                    //-     |   as well.
+                li#mcGillivray
+                    img.trail(src="https://media-cdn.tripadvisor.com/media/photo-s/13/1b/1c/7e/photo0jpg.jpg", alt="")
+                    //- p
+                    //-     |   McGillivray Falls Self-Guiding Trail is a 4.3 kilometer moderately trafficked loop trail located near Division No. 1,
+                    //-     |   Manitoba, Canada that features a lake and is rated as moderate. The trail is primarily used for hiking, walking, nature
+                    //-     |   trips, and bird watching. 
+                li#huntLake
+                    img.trail(src="https://pbs.twimg.com/media/CmIWhKoVAAAxHtx.jpg", alt="")
+                    //- p
+                    //-     |   Hunt Lake Trail is a 12.6 kilometer heavily trafficked out and back trail located near Division No. 1, Manitoba, Canada
+                    //-     |   that features a lake and is rated as difficult. The trail is primarily used for hiking and running and is best used from
+                    //-     |   May until October.     
+                li#spiritSands
+                    img.trail(src="http://images.ctfassets.net/ugr0g0kuvbq4/1YON8KVnvGBB4o4KZYyeU5/5edcbddc9ea2241f0eb335b2cfd1bc9c/Spirit_Sands_27.jpg?fm=webp&h=400", alt="")
+                    //- p
+                    //-     |   Spirit Sands & Devil's Punch Bowl is a 10.0 kilometer heavily trafficked loop trail located near Glenboro-South Cypress,
+                    //-     |   Manitoba, Canada that features a river and is rated as moderate. The trail offers a number of activity options and is best
+                    //-     |   used from April until October. 
+ 
 
             

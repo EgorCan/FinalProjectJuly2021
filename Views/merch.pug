@@ -1,43 +1,35 @@
 extend ./layout.pug
 block content
-    div#merch
-        ul
-            li
-                a(href='#')
-                    img.merch(src='https://www.pinclipart.com/picdir/middle/10-104268_tshirt-svg-tee-shirt-vector-transparent-download-t.png' alt='' width= '200px')
-                label(for='t-shirt')
-                    | Choose a size:
-                select#t-shirt(name='t-shirt')
-                    option(value='xs') XS
-                    option(value='s') S
-                    option(value='m') M
-                    option(value='l') L
-                    option(value='xl') XL
-                .number
-                    span.minus -
-                    input(type='text' value='1')
-                    span.plus +
-                button(onclick='{}')
-                    | add to cart
+    div.containerMerch
+        div.merch
+            a(href='#')
+                img#t-shirt(src='/img/t-shirt.png' alt='' width= '200px')
+            .number
+                span.minus -
+                input(type='text' value='1')
+                span.plus +
+            button(onclick='{}')
+                | add to cart
 
-            li
-                a(href='#')
-                    img.merch(src='https://www.pngkit.com/png/full/393-3934992_baseball-cap-comments-baseball-cap-icon-png.png' alt='' width= '200px') 
-                .number
-                    span.minus -
-                    input(type='text' value='1')
-                    span.plus +
-                button(onclick='{}')
-                    | add to cart
-            li
-                a(href='#')
-                    img.merch(src='https://www.clipartmax.com/png/middle/217-2170345_coffee-mug-hot-drink-cup-icon-coffee-cup.png' alt='' width= '200px') 
-                .number
-                    span.minus -
-                    input(type='text' value='1')
-                    span.plus +
-                button(onclick='{}')
-                    | add to cart
+        div.merch
+            a(href='#')
+                img#hat(src='/img/hat.png' alt='' width= '200px') 
+            .number
+                span#minus -
+                input#hatInput(type='text' value='1')
+                span#plus +
+            button(onclick='{}')
+                | add to cart
+                
+        div.merch
+            a(href='#')
+                img#mug(src='/img/mug.png' alt='' width= '200px') 
+            .number
+                span.minus -
+                input(type='text' value='1')
+                span.plus +
+            button(onclick='{}')
+                | add to cart
     
         button#viewCart(onclick='{}')
                 | view cart   
