@@ -23,6 +23,10 @@ app.get('/', (req, res) => {
     res.render('index', { mainMenu: mainMenu });
 });
 
+app.get('/test', (req, res) => {
+    res.render('test');
+});
+
 app.get('/contact', (req, res) => {
     res.render('contact', { mainMenu: mainMenu });
 });
