@@ -1,14 +1,26 @@
 
 const express = require('express');
 const app = express();
-const mongoClient = require("mongodb").MongoClient;
+
+const bodyParser = require('body-parser');
+const urlEncodeParser = bodyParser.urlencoded({ extended: false });
+
+const jquery = require("jquery");
+
+const mongoose = require("mongoose");
+mongoose.connect("mongodb://localhost/trailUser")
+const db = mongoose.connection;
+
 const port = process.env.PORT;
-// const port = 3003;
 app.listen(port, () => {
     console.log(`Example app running on port ${port}`);
 });
-const dburl = "mongodb://localhost:27017"
 
+const mongoClient = require("mongodb").MongoClient;
+const dburl = "mongodb://localhost:27017"
+mongoClient.connect(dburl, function (err, client) {
+    console.log("Connected with DB");
+});
 
 const mainMenu = [
     { id: 1, name: "all" },
@@ -18,6 +30,9 @@ const mainMenu = [
 
 app.set('view engine', 'pug');
 app.use(express.static("public"));
+
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
 
 app.get('/', (req, res) => {
     res.render('index', { mainMenu: mainMenu });
