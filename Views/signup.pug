@@ -1,0 +1,16 @@
+extend ./layout.pug
+block content
+    form(action='/signup' method='POST')
+        input#name(type='text' name='name' placeholder='name' required)
+        br
+        br
+        input#name(type='text' name='username' placeholder='username' required)
+        br
+        br
+        input#name(type='email' name='email' placeholder='email' required)
+        br
+        br
+        input#name(type='password' name='password' placeholder='password' required)
+        br
+        br
+        input#button(type="submit", value="register")

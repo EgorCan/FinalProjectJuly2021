@@ -1,26 +1,40 @@
 
 const express = require('express');
-const app = express();
-
+const config = require("./config/datadase")
+const bcrypt = require("bcryptjs");
+const session = require('express-session');
+const cookieParser = require('cookie-parser');
+const flash = require("connect-flash");
 const bodyParser = require('body-parser');
-const urlEncodeParser = bodyParser.urlencoded({ extended: false });
-
-const jquery = require("jquery");
-
 const mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost/trailUser")
+const User = require("./models/user");
+const passport = require("passport");
+
+const app = express();
+app.use(cookieParser('secret'));
+app.use(session({ cookie: { maxAge: 60000 } }));
+app.use(flash());
+
+const urlEncodeParser = bodyParser.urlencoded({ extended: false });
+// const jquery = require("jquery");
+
+mongoose.connect(config.database)
 const db = mongoose.connection;
+
+db.once("open", () => {
+    console.log("Connected to DB")
+});
 
 const port = process.env.PORT;
 app.listen(port, () => {
     console.log(`Example app running on port ${port}`);
 });
 
-const mongoClient = require("mongodb").MongoClient;
-const dburl = "mongodb://localhost:27017"
-mongoClient.connect(dburl, function (err, client) {
-    console.log("Connected with DB");
-});
+// const mongoClient = require("mongodb").MongoClient;
+// const dburl = "mongodb://localhost:27017"
+// mongoClient.connect(dburl, function (err, client) {
+//     console.log("Connected with DB");
+// });
 
 const mainMenu = [
     { id: 1, name: "all" },
@@ -34,6 +48,11 @@ app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
+require("./config/passport")(passport);
+app.use(passport.initialize());
+app.use(passport.session());
+
+// routes
 app.get('/', (req, res) => {
     res.render('index', { mainMenu: mainMenu });
 });
@@ -53,6 +72,15 @@ app.get('/merch', (req, res) => {
 app.get('/account', (req, res) => {
     res.render('account', { mainMenu: mainMenu });
 });
+//Login
+app.post("/account", (req, res, next) => {
+    console.log("here");
+    passport.authenticate("local", {
+        successRedirect: "/",
+        failureRedirect: "/account",
+        failureFlash: true
+    })(req, res, next)
+})
 
 app.get('/shoppingCart', (req, res) => {
     res.render('shoppingCart', { mainMenu: mainMenu });
@@ -75,10 +103,37 @@ app.get("/mainMenu/:id", (req, res) => {
     res.render(trailName, { menuElement: selectedMenuElement });
 });
 
-// const mainMessage = {};
-// app.get("/mainMessage/", (req, res) =>{
-// });
 
+//Sign up
+app.post('/signup', (req, res) => {
+    const user = new User();
+    user.name = req.body.name
+    user.email = req.body.email
+    user.username = req.body.username
+    user.password = req.body.password
 
+    bcrypt.genSalt(10, (err, salt) => {
+        bcrypt.hash(user.password, salt, (err, hash) => {
+            if (err) {
+                console.log(err)
+            }
+            user.password = hash;
+            user.save((err) => {
+                if (err) {
+                    console.log(err);
+                    return;
+                } else {
+                    req.flash("success", "You are successfully signed up")
+                    res.redirect("/account")
+                }
+            });
+        });
+    });
+
+});
+
+app.get('/signup', (req, res) => {
+    res.render("signup")
+});
 
 

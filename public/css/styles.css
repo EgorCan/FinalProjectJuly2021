@@ -232,6 +232,10 @@ input{
   vertical-align: middle;
 }
 
+/* input:hover{
+  border: 3px solid rgb(34, 196, 28);
+} */
+
 #hatInput{
   margin-left: 15%;
 }
@@ -267,6 +271,10 @@ form {
 input {
   width: 100%;
   font-size: 15px;
+}
+
+input:hover{
+  border: 3px solid rgb(34, 196, 28);
 }
 
 /* CART PAGE */

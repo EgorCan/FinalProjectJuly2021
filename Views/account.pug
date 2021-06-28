@@ -1,10 +1,15 @@
 extend ./layout.pug
 block content
-    form
+    form(action="/account", method="POST")
         input#name(type='text' name='name' placeholder='name' required)
         br
         br
-        input#pwd(type='pwd' name='pwd' placeholder='password' required)
+        input#pwd(type='password' name='pwd' placeholder='password' required)
         br
         br
-        input#button(type="button", value="login")
+        input#button(type="submit", value="log in")
+        br
+        br
+        a(href='/signup')
+            input#button(type="button", value="sign up")
+
